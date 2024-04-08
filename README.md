@@ -36,4 +36,4 @@ The AI agents will then debate the motion and generate text-to-speech audio resp
 - [ ] Implement a graphical user interface for a more user-friendly experience
 
 
-### DISCLAIMER : This project is not affiliated to the Oxford Union, but is heavily based on rules and conventions followed during the famous Oxford Union Formal Debates on Thursdays during tern-time.
+### DISCLAIMER : This project is not affiliated to the Oxford Union, but is heavily based on rules and conventions followed during the famous Oxford Union Formal Debates on Thursdays during term-time.
