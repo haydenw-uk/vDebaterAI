@@ -16,7 +16,7 @@ import java.util.Map;
 public class Agent {
     private String systemPrompt;
     private String agentName;
-    private debatePosition side;
+    private DebatePosition side;
     private boolean currentSpeakerPrivilege;
     private Chamber debatingChamber;
 
@@ -25,7 +25,7 @@ public class Agent {
     private static final String OPENAI_API_URL = System.getenv("OPENAI_LLM_MODELS_API_URL");
     private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
 
-    public enum debatePosition {
+    public enum DebatePosition {
         PROPOSITION,
         OPPOSITION,
         NEUTRAL
@@ -35,12 +35,12 @@ public class Agent {
         return systemPrompt;
     }
 
-    public debatePosition getDebatePosition()
+    public DebatePosition getDebatePosition()
     {
         return side;
     }
 
-    public void setDebatePosition(debatePosition sideToSet)
+    public void setDebatePosition(DebatePosition sideToSet)
     {
         this.side = sideToSet;
     }
@@ -54,7 +54,7 @@ public class Agent {
         return this.ttsVoiceName;
     }
 
-    public Agent(String agentName, debatePosition agentSide, Chamber debatingChamber, String voiceForTTS)
+    public Agent(String agentName, DebatePosition agentSide, Chamber debatingChamber, String voiceForTTS)
     {
         this.agentName = agentName;
         this.side = agentSide;
@@ -114,7 +114,7 @@ public class Agent {
             in.close();
             JsonObject jsonResponse = JsonParser.parseString(response.toString()).getAsJsonObject();
             JsonArray choices = jsonResponse.getAsJsonArray("choices");
-            if (choices.size() > 0) {
+            if (!choices.isEmpty()) {
                 return choices.get(0).getAsJsonObject().getAsJsonObject("message").get("content").getAsString();
             }
         }

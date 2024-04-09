@@ -24,36 +24,33 @@ public class Main {
         String presidentNameUserInput = kb.nextLine();
 
         // Create Agent with President role
-        Agent president = new Agent(presidentNameUserInput, Agent.debatePosition.NEUTRAL, debatingChamber, "fable");
-        debatingChamber.AddEntityToChamber(president);
+        Agent president = new Agent(presidentNameUserInput, Agent.DebatePosition.NEUTRAL, debatingChamber, "fable");
+        debatingChamber.addEntity(president);
 
 
         // Proposition Debater's initialisation with user entered name
         // Create Agent with Proposition Debater role
-        Agent propositionDebaterOne = new Agent("Rachael Rhonden", Agent.debatePosition.PROPOSITION, debatingChamber, "alloy");
-        debatingChamber.AddEntityToChamber(propositionDebaterOne);
+        Agent propositionDebaterOne = new Agent("Rachael Rhonden", Agent.DebatePosition.PROPOSITION, debatingChamber, "alloy");
+        debatingChamber.addEntity(propositionDebaterOne);
 
 
         // Opposition Debater's initialisation with user entered name
         // Create Agent with Opposition Debater role
-        Agent oppositionDebaterOne = new Agent("Sam Bloggs", Agent.debatePosition.OPPOSITION, debatingChamber, "echo");
-        debatingChamber.AddEntityToChamber(oppositionDebaterOne);
+        Agent oppositionDebaterOne = new Agent("Sam Bloggs", Agent.DebatePosition.OPPOSITION, debatingChamber, "echo");
+        debatingChamber.addEntity(oppositionDebaterOne);
 
 
 
         // Proposition Debater's initialisation with user entered name
         // Create Agent with Proposition Debater role
-        Agent propositionDebaterTwo = new Agent("Sam Christies", Agent.debatePosition.PROPOSITION, debatingChamber, "onyx");
-        debatingChamber.AddEntityToChamber(propositionDebaterTwo);
+        Agent propositionDebaterTwo = new Agent("Sam Christies", Agent.DebatePosition.PROPOSITION, debatingChamber, "onyx");
+        debatingChamber.addEntity(propositionDebaterTwo);
 
 
         // Opposition Debater's initialisation with user entered name
         // Create Agent with Opposition Debater role
-        Agent oppositionDebaterTwo = new Agent("Samantha Jarvies", Agent.debatePosition.OPPOSITION, debatingChamber, "shimmer");
-        debatingChamber.AddEntityToChamber(oppositionDebaterTwo);
-
-
-
+        Agent oppositionDebaterTwo = new Agent("Samantha Jarvies", Agent.DebatePosition.OPPOSITION, debatingChamber, "shimmer");
+        debatingChamber.addEntity(oppositionDebaterTwo);
 
 
         // Wipe, Prepare 'Minutes' Text File
@@ -69,7 +66,7 @@ public class Main {
         Audio.generateTTSAudioAndPlay(presidentWelcomeText, "fable");
 
         // Preposition opens debate
-        Agent.debatePosition currentSideSeekingForSpeaker = Agent.debatePosition.PROPOSITION;
+        Agent.DebatePosition currentSideSeekingForSpeaker = Agent.DebatePosition.PROPOSITION;
 
         while (debatingChamber.isDebateRunning())
         {
@@ -104,13 +101,13 @@ public class Main {
                     Minutes.appendMinutes("~\n" + formattedSpeaker + response);
 
                     // Change debate side to opposite to most recent speaker to allow for next speaker on opposing side to respond
-                    if(currentSideSeekingForSpeaker == Agent.debatePosition.PROPOSITION)
+                    if(currentSideSeekingForSpeaker == Agent.DebatePosition.PROPOSITION)
                     {
-                        currentSideSeekingForSpeaker = Agent.debatePosition.OPPOSITION;
+                        currentSideSeekingForSpeaker = Agent.DebatePosition.OPPOSITION;
                     }
                     else
                     {
-                        currentSideSeekingForSpeaker = Agent.debatePosition.PROPOSITION;
+                        currentSideSeekingForSpeaker = Agent.DebatePosition.PROPOSITION;
                     }
 
                 }

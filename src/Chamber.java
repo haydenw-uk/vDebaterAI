@@ -19,7 +19,7 @@ public class Chamber {
 
     }
 
-    public void AddEntityToChamber(Agent entityToAdd)
+    public void addEntity(Agent entityToAdd)
     {
         presentEntities.add(entityToAdd);
         System.out.println("[INFO] " + entityToAdd.getAgentName().toUpperCase() + " (" + entityToAdd.getDebatePosition().toString().toUpperCase() + ")"  + " HAS ENTERED THE CHAMBER.");
