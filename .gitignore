@@ -31,3 +31,7 @@ bin/
 
 ### Secrets ###
 .env
+
+### Project Misc. ###
+minutes.txt
+speech.mp3
