@@ -30,10 +30,9 @@ The AI agents will then debate the motion and generate text-to-speech audio resp
 
 ## Future Improvements (TODO)
 
-- [ ] Implement audience members who can raise points of information and vote on the motion
-- [ ] Integrate support for further variety of Large Language Models (e.g., Claude 3 or GPT-4) for better AI responses
-- [ ] Add support for live fact-checking using an internet-connected model such as Perplexity.AI's API or Exa.AI.
-- [ ] Implement a graphical user interface for a more user-friendly experience
+- [ ] Implement a graphical user interface for a more user-friendly, accessible experience
+- [ ] Integrate support for further variety of frontier Large Language Models (e.g., Claude 3, GPT-4, Llama 3) for varied AI responses and to improve debate
+- [ ] Implement audience member AI agents (raise Points of Information (POI) and vote on the motion upon debate conclusion) -> e.g. Perplexity, Exa AI
 
 
 ### DISCLAIMER : This project is not affiliated to the Oxford Union, but is heavily based on rules and conventions followed during the famous Oxford Union Formal Debates on Thursdays during term-time.
