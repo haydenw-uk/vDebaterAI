@@ -30,26 +30,26 @@ public class Main {
 
         // Proposition Debater's initialisation with user entered name
         // Create Agent with Proposition Debater role
-        Agent propositionDebaterOne = new Agent("Rachael Rhonden", Agent.DebatePosition.PROPOSITION, debatingChamber, "alloy");
+        Agent propositionDebaterOne = new Agent("Arabella Octavia Fitzroy-Whitworth", Agent.DebatePosition.PROPOSITION, debatingChamber, "alloy");
         debatingChamber.addEntity(propositionDebaterOne);
 
 
         // Opposition Debater's initialisation with user entered name
         // Create Agent with Opposition Debater role
-        Agent oppositionDebaterOne = new Agent("Sam Bloggs", Agent.DebatePosition.OPPOSITION, debatingChamber, "echo");
+        Agent oppositionDebaterOne = new Agent("Cedric Quentins", Agent.DebatePosition.OPPOSITION, debatingChamber, "echo");
         debatingChamber.addEntity(oppositionDebaterOne);
 
 
 
         // Proposition Debater's initialisation with user entered name
         // Create Agent with Proposition Debater role
-        Agent propositionDebaterTwo = new Agent("Sam Christies", Agent.DebatePosition.PROPOSITION, debatingChamber, "onyx");
+        Agent propositionDebaterTwo = new Agent("Barnaby Leopold-Harrington", Agent.DebatePosition.PROPOSITION, debatingChamber, "onyx");
         debatingChamber.addEntity(propositionDebaterTwo);
 
 
         // Opposition Debater's initialisation with user entered name
         // Create Agent with Opposition Debater role
-        Agent oppositionDebaterTwo = new Agent("Samantha Jarvies", Agent.DebatePosition.OPPOSITION, debatingChamber, "shimmer");
+        Agent oppositionDebaterTwo = new Agent("Beatrix Ophelia", Agent.DebatePosition.OPPOSITION, debatingChamber, "shimmer");
         debatingChamber.addEntity(oppositionDebaterTwo);
 
 
@@ -62,7 +62,7 @@ public class Main {
         debatingChamber.setDebateRunning(true);
 
         // Output president's welcome / introduction to the debate and Motion (hardcoded)
-        String presidentWelcomeText = "Welcome to " + orgName + "'s Virtual AI Formal Debate. I am " + presidentNameUserInput + ", your president. Today we are debating the Motion: " + debatingChamber.getHouseMotion() + ": I look to the Proposition to open this motion...";
+        String presidentWelcomeText = "Welcome to " + orgName + "'s Virtual AI Formal Debate. I am " + presidentNameUserInput + ", your president. I put forward the Motion to the House that " + debatingChamber.getHouseMotion() + ": I look to the Proposition to open this debate...";
         Audio.generateTTSAudioAndPlay(presidentWelcomeText, "fable");
 
         // Preposition opens debate
@@ -85,7 +85,7 @@ public class Main {
                     System.out.print(formattedSpeaker);
 
                     // Generate, save AI agent's response with LLM (parsing context of Agent System Prompt and Debate Minutes)
-                    String response = speakingAgent.getAIAgentResponse("gpt-3.5-turbo", speakingAgent.getSystemPrompt(), Minutes.readMinutes());
+                    String response = speakingAgent.getAIAgentResponse("gpt-4o-mini", speakingAgent.getSystemPrompt(), Minutes.readMinutes());
 
                     // Generate, Play Text-to-Speech File of AI agent response
                     Audio.generateTTSAudioAndPlay(response, speakingAgent.getAgentTTSVoice());

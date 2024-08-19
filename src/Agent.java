@@ -24,6 +24,8 @@ public class Agent {
 
     private static final String OPENAI_API_URL = System.getenv("OPENAI_LLM_MODELS_API_URL");
     private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+    private static final String OPENAI_ORG_ID = System.getenv("OPENAI_ORG_ID");
+    private static final String OPENAI_PROJECT_ID = System.getenv("OPENAI_PROJECT_ID");
 
     public enum DebatePosition {
         PROPOSITION,
@@ -59,7 +61,7 @@ public class Agent {
         this.agentName = agentName;
         this.side = agentSide;
         this.currentSpeakerPrivilege = false;
-        this.systemPrompt = "You are a virtual debater bot called " + this.getAgentName() + ". You must follow all rules of the House: 1) Keep responses under 5 minutes when spoken 3) You must address the house vs your opposition directly 4) You must mostly ignore balanced arguments and conclusions in your answer but address your opponents’ points and add your own. Use facts and stats to back up answers. 5) You must follow Oxford Union’s conventions. YOUR RESPONSES MUST CONTAIN NO NEW LINES AND BE ONE BLOCK OF TEXT. DO NOT INCLUDE YOUR NAME IN OUTPUT, ONLY YOUR RESPONSE. Bring up a new point if debate becoming 'stuck'. Be as close to human sounding as possible. You are on the " + this.getDebatePosition() + " side of this motion <" + debatingChamber.getHouseMotion() + ">.";
+        this.systemPrompt = "You are a virtual debater bot called " + this.getAgentName() + ". You must follow all rules: 1) Keep responses under 900 words. 3) You must always address the house directly 4) You must mostly ignore balanced arguments and conclusions in your answer but address your opponents’ points and add your own. Use relevant and accurate statistics to solidify your points. 5) You must follow Oxford Union’s debate conventions. 6) Format ALL responses in one single line, uninterrupted by new lines. 7) Bring up a new point if debate becoming 'stuck'. 8) Be as close to human sounding as possible. 9) Do NOT hallucinate. You are on " + this.getDebatePosition() + " side of this motion <" + debatingChamber.getHouseMotion() + ">.";
         this.ttsVoiceName = voiceForTTS;
 
     }
@@ -78,6 +80,8 @@ public class Agent {
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
         con.setRequestProperty("Authorization", "Bearer " + OPENAI_API_KEY);
+        con.setRequestProperty("OpenAI-Organization", OPENAI_ORG_ID);
+        con.setRequestProperty("OpenAI-Project", OPENAI_PROJECT_ID);
         con.setDoOutput(true);
 
         List<Map<String, String>> messages = new ArrayList<>();
