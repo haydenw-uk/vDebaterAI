@@ -24,6 +24,7 @@ public class Agent {
 
     private static final String OPENAI_API_URL = System.getenv("OPENAI_LLM_MODELS_API_URL");
     private static final String OPENAI_API_KEY = System.getenv("OPENAI_API_KEY");
+    // Please note, OpenAI introduced ORG and PROJECT IDs in a recent API update
     private static final String OPENAI_ORG_ID = System.getenv("OPENAI_ORG_ID");
     private static final String OPENAI_PROJECT_ID = System.getenv("OPENAI_PROJECT_ID");
 
